@@ -82,21 +82,42 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 ]
 
-group_names = [("WWW", {'layout': 'monadtall'}),
-               ("DEV", {'layout': 'monadtall'}),
-               ("SYS", {'layout': 'monadtall'}),
-               ("DOC", {'layout': 'monadtall'}),
-               ("VBOX", {'layout': 'monadtall'}),
-               ("CHAT", {'layout': 'monadtall'}),
-               ("MUS", {'layout': 'monadtall'}),
-               ("VID", {'layout': 'monadtall'}),
-               ("GFX", {'layout': 'floating'})]
+#group_names = [("WWW", {'layout': 'monadtall'}),
+#               ("DEV", {'layout': 'monadtall'}),
+#               ("SYS", {'layout': 'monadtall'}),
+#               ("DOC", {'layout': 'monadtall'}),
+#               ("VBOX", {'layout': 'monadtall'}),
+#               ("CHAT", {'layout': 'monadtall'}),
+#               ("MUS", {'layout': 'monadtall'}),
+#               ("VID", {'layout': 'monadtall'}),
+#               ("GFX", {'layout': 'floating'})]
+
+def_layout = "ratiotile"
+group_names=[("  ",{'layout': def_layout, 'spawn':'termite'}),
+           ("  ",{'layout': def_layout}),
+           ("  ",{'layout': def_layout,'spawn':'firefox'}),
+           ("  ",{'layout': def_layout}), 
+           ("  ",{'layout': def_layout}),
+           ("  ",{'layout': def_layout, 'spawn':'keepassxc'}),
+           ("  ",{'layout': def_layout}),
+           ("  ",{'layout': def_layout, 'spawn':'telegram-desktop'}),
+           ("  ",{'layout': def_layout, 'spawn':'spotify'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
 for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
+
+colors = [["#282c34", "#282c34"], # panel background
+          ["#3d3f4b", "#434758"], # background for current screen tab
+          ["#ffffff", "#ffffff"], # font color for group names
+          ["#ff5555", "#ff5555"], # border line color for current tab
+          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
+          ["#e1acff", "#e1acff"], # window name
+          ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
+
 
 layout_theme = {"border_width": 2,
                 "margin": 8,
@@ -145,21 +166,12 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
+    font='Inconsolata',
     fontsize=12,
     padding=3,
-    background='ffffff'
+    background = colors[4],
 )
 extension_defaults = widget_defaults.copy()
-
-colors = [["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
-          ["#e1acff", "#e1acff"], # window name
-          ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
 
 screens = [
     Screen(
@@ -169,11 +181,10 @@ screens = [
                         linewidth = 0,
                         padding = 6,
                         foreground = colors[2],
-                        background = colors[0]
                     ),
                     widget.GroupBox(
-                        font = "Ubuntu Bold",
-                        fontsize = 9,
+                        font = "",
+                        fontsize = 15,
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
@@ -188,72 +199,49 @@ screens = [
                         this_screen_border = colors [4],
                         other_current_screen_border = colors[6],
                         other_screen_border = colors[4],
-                        background = colors[0],
                         foreground = colors[2],
                     ),
                     widget.Prompt(
                         #prompt = prompt,
-                        font = "Ubuntu Mono",
                         padding = 10,
                         foreground = colors[3],
-                        background = colors[1]
                         ),
                     widget.Sep(
                         linewidth = 0,
                         padding = 40,
                         foreground = colors[2],
-                        background = colors[0]
                     ),
 
                     widget.WindowName(
                         foreground = colors[6],
-                        background = colors[0],
                         padding = 0
                     ),
                     widget.Systray(
-                        background = colors[0],
                         padding = 5
                     ),
                 widget.TextBox(
-                    text = '',
-                    background = colors[4],
-                    foreground = colors[5],
-                    padding = 0,
-                    fontsize = 37
-                ),
-                widget.TextBox(
                     text = " Vol:",
                     foreground = colors[2],
-                    background = colors[5],
                     padding = 0
                 ),
                 widget.Volume(
                     foreground = colors[2],
-                    background = colors[5],
-                    padding = 5
+                    padding = 0
                 ),
 
                 widget.Systray(),
                 widget.CurrentLayout(
                     foreground = colors[2],
-                    background = colors[4],
                     padding = 5
-                ),
-                widget.TextBox(
-                    text = '',
-                    background = colors[4],
-                    foreground = colors[5],
-                    padding = 0,
-                    fontsize = 37
                 ),
                 widget.Clock(
                     foreground = colors[2],
-                    background = colors[4],
                     padding = 5,
                     format = '%A, %B, %d - %H:%M'
                 ),
                 ],
-            24,
+            size = 24,
+            opacity = 0.85,
         ),
     ),
 ]
