@@ -82,16 +82,16 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 ]
 
-def_layout = "ratiotile"
-group_names=[("  ",{'layout': def_layout, 'spawn':'termite'}),
-           ("  ",{'layout': def_layout}),
-           ("  ",{'layout': def_layout,'spawn':'firefox'}),
-           ("  ",{'layout': def_layout}), 
-           ("  ",{'layout': def_layout}),
-           ("  ",{'layout': def_layout, 'spawn':'keepassxc'}),
-           ("  ",{'layout': def_layout}),
-           ("  ",{'layout': def_layout, 'spawn':'telegram-desktop'}),
-           ("  ",{'layout': def_layout, 'spawn':'spotify'})]
+group_names=[("  ",{'layout': 'ratiotile', 'spawn':'kitty'}),
+        ("  ",{'layout': 'max', 'spawn': 'code'}),
+        ("  ",{'layout': 'ratiotile','spawn':'chromium'}),
+           ("  ",{'layout': 'ratiotile'}), 
+           ("  ",{'layout': 'ratiotile'}),
+           ("  ",{'layout': 'ratiotile'}),
+           ("  ",{'layout': 'ratiotile'}),
+           ("  ",{'layout': 'max'}),
+           ("  ",{'layout': 'max'})
+]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -102,7 +102,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 colors = [["#333c65ff", "#333c65ff"], # panel background
           ["#433860", "#433860"], # background for current screen tab
           ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
+          ["#74438f", "#74438f"], # border line color for current tab
           ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
           ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
           ["#e1acff", "#e1acff"], # window name
