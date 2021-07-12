@@ -99,8 +99,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-colors = [["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
+colors = [["#333c65ff", "#333c65ff"], # panel background
+          ["#433860", "#433860"], # background for current screen tab
           ["#ffffff", "#ffffff"], # font color for group names
           ["#ff5555", "#ff5555"], # border line color for current tab
           ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
@@ -109,10 +109,10 @@ colors = [["#282c34", "#282c34"], # panel background
           ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
 
 
-layout_theme = {"border_width": 2,
+layout_theme = {"border_width": 1,
                 "margin": 8,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
+                "border_focus": '333c65', 
+                "border_normal": '433860'
                 }
 
 layouts = [
@@ -230,7 +230,7 @@ screens = [
                 ),
                 ],
             size = 24,
-            opacity = 0.85,
+            opacity = 1,
         ),
     ),
 ]
