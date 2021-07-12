@@ -84,8 +84,8 @@ keys = [
 
 def_layout = "ratiotile"
 group_names=[("  ",{'layout': def_layout, 'spawn':'termite'}),
-           ("  ",{'layout': def_layout}),
-           ("  ",{'layout': def_layout,'spawn':'firefox'}),
+           ("  ",{'layout': def_layout}),
+           ("  ",{'layout': def_layout,'spawn':'firefox'}),
            ("  ",{'layout': def_layout}), 
            ("  ",{'layout': def_layout}),
            ("  ",{'layout': def_layout, 'spawn':'keepassxc'}),
@@ -173,7 +173,7 @@ screens = [
                         foreground = colors[2],
                     ),
                     widget.GroupBox(
-                        fontsize = 15,
+                        fontsize = 20,
                         margin_y = 3,
                         margin_x = 0,
                         padding_y = 5,
