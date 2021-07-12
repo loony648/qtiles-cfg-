@@ -82,16 +82,6 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 ]
 
-#group_names = [("WWW", {'layout': 'monadtall'}),
-#               ("DEV", {'layout': 'monadtall'}),
-#               ("SYS", {'layout': 'monadtall'}),
-#               ("DOC", {'layout': 'monadtall'}),
-#               ("VBOX", {'layout': 'monadtall'}),
-#               ("CHAT", {'layout': 'monadtall'}),
-#               ("MUS", {'layout': 'monadtall'}),
-#               ("VID", {'layout': 'monadtall'}),
-#               ("GFX", {'layout': 'floating'})]
-
 def_layout = "ratiotile"
 group_names=[("  ",{'layout': def_layout, 'spawn':'termite'}),
            ("  ",{'layout': def_layout}),
@@ -169,7 +159,7 @@ widget_defaults = dict(
     font='Inconsolata',
     fontsize=12,
     padding=3,
-    background = colors[4],
+    background = colors[0],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -183,7 +173,6 @@ screens = [
                         foreground = colors[2],
                     ),
                     widget.GroupBox(
-                        font = "",
                         fontsize = 15,
                         margin_y = 3,
                         margin_x = 0,
