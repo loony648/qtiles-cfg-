@@ -110,7 +110,7 @@ colors = [["#333c65ff", "#333c65ff"], # panel background
 
 
 layout_theme = {"border_width": 1,
-                "margin": 8,
+                "margin": [24,24,24,24],
                 "border_focus": '333c65', 
                 "border_normal": '433860'
                 }
@@ -118,7 +118,7 @@ layout_theme = {"border_width": 1,
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
+    layout.Stack(**layout_theme, num_stacks=2),
     layout.RatioTile(**layout_theme),
     layout.TreeTab(
          font = "Ubuntu",
@@ -181,7 +181,7 @@ screens = [
                         borderwidth = 3,
                         active = colors[2],
                         inactive = colors[7],
-                        rounded = False,
+                        rounded = True,
                         highlight_color = colors[1],
                         highlight_method = "line",
                         this_current_screen_border = colors[6],
@@ -229,8 +229,9 @@ screens = [
                     format = '%A, %B, %d - %H:%M'
                 ),
                 ],
-            size = 24,
+            size = 48,
             opacity = 1,
+            margin=[18,128,18,128],
         ),
     ),
 ]
