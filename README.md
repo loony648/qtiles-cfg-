@@ -2,7 +2,7 @@
 
 This is my first configuration file for qtiles.
 -------------
-![loony Theme #1](https://i.imgur.com/uZzCm1e.png)
+![loony Theme #1](https://i.imgur.com/RE0qzGd.png)
 
 - Running OS - **Arch Linux**
 - Using **feh** to show wallpapers
